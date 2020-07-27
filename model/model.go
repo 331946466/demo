@@ -3,7 +3,7 @@ package model
 import "fmt"
 
 //判断牌型等级
-func GradePoker(ShunZi string,Same string,Consecutive string,AlonePoker string,MaxPoker int){
+func GradePoker(ShunZi string,Same string,Consecutive string,AlonePoker string,MaxPoker int)(GradeResult int,NameResult string){
 	var Grade int
 	var Name string
 //皇家同花
@@ -38,5 +38,6 @@ func GradePoker(ShunZi string,Same string,Consecutive string,AlonePoker string,M
 		Grade=1
 		Name="散子"
 	}
-	fmt.Println(Name+"\n"+"牌型等级：",Grade)
+	fmt.Println(Name+"牌型等级为:",Grade)
+	return Grade,Name
 }

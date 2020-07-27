@@ -1,20 +1,12 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
-	"mygo/spareArray"
-	"os"
+	"mygo/player"
+	"mygo/referee"
 )
 
 func main() {
-	fmt.Println("请输入测试牌型")
-	inputReader := bufio.NewReader(os.Stdin)
-	Poker, err := inputReader.ReadString('\n')
-	if err != nil {
-		fmt.Println("输入错误")
-	}
-	BytePoker := []byte(Poker)
-	//将牌存储到稀疏数组中
-	spareArray.ArrayPoker(BytePoker)
+	Grade,Poker,Array:=player.Player("小明")
+	Grade2,Poker2,Array2:=player.Player("小刚")
+	referee.Referee(Grade,Poker,Array,Grade2,Poker2,Array2)
 }

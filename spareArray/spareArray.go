@@ -6,11 +6,11 @@ import (
 	//"mygo/testPoker"
 )
 
-func ArrayPoker(BytePoker []byte) {
+func ArrayPoker(BytePoker []byte)(GradeResult int,NameResult string,ArrayResult[][] int) {
 	var j int = 0
 	var h int = 0
-	doubleArray := make([][]int, len(BytePoker)/2)
-	for k := 0; k < len(BytePoker)/2; k++ {
+	doubleArray := make([][]int, len(BytePoker))
+	for k := 0; k < len(BytePoker); k++ {
 		doubleArray[k] = make([]int, 3)
 	}
 //将牌存入稀疏数组
@@ -107,7 +107,8 @@ func ArrayPoker(BytePoker []byte) {
 		}
 
 	}
-	testPoker.TestPoker(doubleArray,len(doubleArray))
+	Grade,Name:=testPoker.TestPoker(doubleArray)
+	return Grade,Name,doubleArray
 }
 
 //}
