@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	Grade,Poker,Array:=player.Player("小明")
-	Grade2,Poker2,Array2:=player.Player("小刚")
-	referee.Referee(Grade,Poker,Array,Grade2,Poker2,Array2)
+	Grade,Poker,Array,Name:=player.Player("小明")
+	Grade2,Poker2,Array2,Name2:=player.Player("小刚")
+	referee.Referee(Grade,Poker,Array,Name,Grade2,Poker2,Array2,Name2)
 }

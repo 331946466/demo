@@ -5,15 +5,14 @@ import (
 	"mygo/model"
 )
 
-//判断牌型
+//测试牌型
 func TestPoker(doubleArray [][]int) (GradePoker int,NamePoker string){
 	fmt.Println(doubleArray)
 	ShunZi := ShunZi(doubleArray)
 	Same := SameColor(doubleArray)
 	Consecutive := Consecutive(doubleArray)
 	AlonePoker := AlonePoker(doubleArray)
-	MaxPoker := doubleArray[0][0]
-	Grade,Name :=model.GradePoker(ShunZi, Same, Consecutive, AlonePoker, MaxPoker)
+	Grade,Name :=model.GradePoker(ShunZi, Same, Consecutive, AlonePoker, doubleArray)
 	return Grade,Name
 }
 
@@ -47,12 +46,11 @@ func SameColor(doubleArray [][]int) (b string) {
 //连对、三条、四条
 func Consecutive(doubleArray [][]int) (b string) {
 	for i := 0; i < len(doubleArray)/2; i++ {
-		temp := doubleArray[i][0]
-		if temp == doubleArray[i+1][0] && doubleArray[i][0] != 0 {
+		if doubleArray[i][0] == doubleArray[i+1][0] && doubleArray[i][0] != 0 {
 			b = "对子"
-			if temp == doubleArray[i+2][0] {
+			if doubleArray[i][0] == doubleArray[i+2][0] {
 				b = "三条"
-				if temp == doubleArray[i+3][0] {
+				if doubleArray[i][0] == doubleArray[i+3][0] {
 					b = "四条"
 					break
 				}
